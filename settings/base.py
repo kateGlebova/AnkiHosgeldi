@@ -20,7 +20,7 @@ config_dict = {
             "level": "INFO",
             "filename": basedir + '/mail.log'
         },
-        "parse_log": {
+        "log": {
             "class": "logging.handlers.RotatingFileHandler",
             "formatter": "full",
             "level": "INFO",
@@ -39,10 +39,10 @@ config_dict = {
                 "mail_log"
             ]
         },
-        "parse_logger": {
+        "logger": {
             "level": "ERROR",
             "handlers": [
-                "parse_log"
+                "log"
             ]
         },
         "root": {
