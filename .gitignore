@@ -2,3 +2,6 @@ settings/local.py
 .idea/
 .cache/
 __pycache__/
+*.pyc
+settings/*.pyc
+settings/*.log

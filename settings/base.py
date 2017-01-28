@@ -1,7 +1,15 @@
+# -*- coding: utf-8 -*-
+
 import logging.config
 import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+
+languages = {
+    'French': u'Учить слова на французском',
+    'English': u'Учить слова на английском',
+    'German': u'Учить слова на немецком'
+}
 
 config_dict = {
     "version": 1,
@@ -26,11 +34,11 @@ config_dict = {
             "level": "INFO",
             "filename": basedir + '/parse.log'
         },
-        "console": {
-            "class": "logging.handlers.StreamHandler",
-            "formatter": "brief",
-            "level": "WARNING"
-        }
+        # "console": {
+        #     "class": "logging.handlers.StreamHandler",
+        #     "formatter": "brief",
+        #     "level": "WARNING"
+        # }
     },
     "loggers": {
         "mail_logger": {
@@ -45,12 +53,12 @@ config_dict = {
                 "log"
             ]
         },
-        "root": {
-            "level": "DEBUG",
-            "handlers": [
-                "console"
-            ]
-        },
+        # "root": {
+        #     "level": "DEBUG",
+        #     "handlers": [
+        #         "console"
+        #     ]
+        # },
     }
 }
 

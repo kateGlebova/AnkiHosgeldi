@@ -5,12 +5,15 @@ import requests
 from bs4 import BeautifulSoup, element
 from requests import RequestException
 
+from settings.base import languages
+
 logger = getLogger('logger')
 
 
 class HosgeldiMessage:
-    def __init__(self, string):
+    def __init__(self, string, language):
         self.message = message_from_string(string)
+        self.language = language
 
     def get_link(self):
         '''
@@ -21,8 +24,7 @@ class HosgeldiMessage:
         if self.message.get_content_maintype() == 'text':
             soup = BeautifulSoup(self.message.get_payload(), 'html.parser')
             for strong in soup.find_all('strong'):
-
-                if strong.string == 'Учить слова на французском':
+                if strong.string == languages[self.language]:
                     return strong.parent.get('href')
 
 
