@@ -1,51 +1,18 @@
-from email import message_from_string
-from logging import getLogger
+import argparse
 
-import requests
-from bs4 import BeautifulSoup, element
-from requests import RequestException
+from hmessage import HosgeldiMessage
+from mail import Mailbox
+from settings.base import languages, newsletter_folder
+from settings.local import host, username, password, csv_path
 
-from settings.base import languages
+parser = argparse.ArgumentParser()
+parser.add_argument("language", choices=languages.keys(), help='specify the language you are learning')
+args = parser.parse_args()
 
-logger = getLogger('logger')
+mailbox = Mailbox(host, username, password)
+mailbox.go_to_folder(newsletter_folder)
 
-
-class HosgeldiMessage:
-    def __init__(self, string, language):
-        self.message = message_from_string(string)
-        self.language = language
-
-    def get_link(self):
-        '''
-
-        :return: str | link to the page with 10 words in case of success
-                 None otherwise
-        '''
-        if self.message.get_content_maintype() == 'text':
-            soup = BeautifulSoup(self.message.get_payload(), 'html.parser')
-            for strong in soup.find_all('strong'):
-                if strong.string == languages[self.language]:
-                    return strong.parent.get('href')
-
-
-class HosgeldiParser:
-    _page = None
-    _words = dict()
-
-    def __init__(self, link):
-        try:
-            self._page = BeautifulSoup(requests.get(link).content, 'html.parser')
-        except RequestException:
-            logger.exception('Invalid link.')
-
-    def get_words(self):
-        if not self._words:
-            self._parse_words()
-        return self._words
-
-    def _parse_words(self):
-        if self._page:
-            for li in self._page.find(id='myGallery'):
-                if isinstance(li, element.Tag):
-                    word = [p.get_text() for p in list(li.children)[3].find_all('p')]
-                    self._words[word[0]] = word[1]
+uids = mailbox.get_uids()
+for uid in uids:
+    message = HosgeldiMessage(mailbox.get_by_uid(uid), args.language)
+    message.words_to_csv('{}hosgeldi_{}.csv'.format(csv_path, args.language))

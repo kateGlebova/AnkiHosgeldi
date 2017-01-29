@@ -1,0 +1,27 @@
+2017-01-29 15:18:42,234 mail_logger     ERROR    An error occured while signing in.
+Traceback (most recent call last):
+  File "/media/kate/D/stuff/anki_hosgeldi/mail.py", line 12, in __init__
+    self.mail.login(username, password)
+  File "/usr/lib/python3.5/imaplib.py", line 582, in login
+    raise self.error(dat[-1])
+imaplib.IMAP4.error: b'[AUTHENTICATIONFAILED] Invalid credentials (Failure)'
+2017-01-29 15:22:05,039 mail_logger     ERROR    An error occured while signing in.
+Traceback (most recent call last):
+  File "/media/kate/D/stuff/anki_hosgeldi/mail.py", line 12, in __init__
+    self.mail.login(username, password)
+  File "/usr/lib/python3.5/imaplib.py", line 582, in login
+    raise self.error(dat[-1])
+imaplib.IMAP4.error: b'[AUTHENTICATIONFAILED] Invalid credentials (Failure)'
+2017-01-29 15:22:48,654 mail_logger     ERROR    An error occured while signing in.
+Traceback (most recent call last):
+  File "/media/kate/D/stuff/anki_hosgeldi/mail.py", line 11, in __init__
+    self.mail = IMAP4_SSL(host)
+  File "/media/kate/D/stuff/anki_hosgeldi/mail.py", line 11, in __init__
+    self.mail = IMAP4_SSL(host)
+  File "/opt/pycharm-2016.2.3/helpers/pydev/_pydevd_bundle/pydevd_frame.py", line 651, in trace_dispatch
+    self.do_wait_suspend(thread, frame, event, arg)
+  File "/opt/pycharm-2016.2.3/helpers/pydev/_pydevd_bundle/pydevd_frame.py", line 71, in do_wait_suspend
+    self._args[0].do_wait_suspend(*args, **kwargs)
+  File "/opt/pycharm-2016.2.3/helpers/pydev/pydevd.py", line 738, in do_wait_suspend
+    time.sleep(0.01)
+KeyboardInterrupt

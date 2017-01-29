@@ -5,6 +5,8 @@ import os
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
+newsletter_folder = 'hosgeldi'
+
 languages = {
     'French': u'Учить слова на французском',
     'English': u'Учить слова на английском',
@@ -32,13 +34,8 @@ config_dict = {
             "class": "logging.handlers.RotatingFileHandler",
             "formatter": "full",
             "level": "INFO",
-            "filename": basedir + '/parse.log'
-        },
-        # "console": {
-        #     "class": "logging.handlers.StreamHandler",
-        #     "formatter": "brief",
-        #     "level": "WARNING"
-        # }
+            "filename": basedir + '/main.log'
+        }
     },
     "loggers": {
         "mail_logger": {
@@ -52,13 +49,7 @@ config_dict = {
             "handlers": [
                 "log"
             ]
-        },
-        # "root": {
-        #     "level": "DEBUG",
-        #     "handlers": [
-        #         "console"
-        #     ]
-        # },
+        }
     }
 }
 
