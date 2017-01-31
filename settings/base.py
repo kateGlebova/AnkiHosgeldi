@@ -3,7 +3,10 @@
 import logging.config
 import os
 
-basedir = os.path.abspath(os.path.dirname(__file__))
+import sys
+
+basedir = os.path.abspath(os.path.dirname(__file__) + '/..')
+
 
 newsletter_folder = 'hosgeldi'
 
@@ -45,7 +48,7 @@ config_dict = {
             ]
         },
         "logger": {
-            "level": "ERROR",
+            "level": "INFO",
             "handlers": [
                 "log"
             ]
@@ -54,3 +57,4 @@ config_dict = {
 }
 
 logging.config.dictConfig(config_dict)
+sys.path.append(basedir)

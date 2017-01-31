@@ -4,4 +4,5 @@ settings/local.py
 __pycache__/
 *.pyc
 settings/*.pyc
-settings/*.log
+*.log
+*.csv
