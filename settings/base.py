@@ -8,7 +8,7 @@ import sys
 basedir = os.path.abspath(os.path.dirname(__file__) + '/..')
 
 
-newsletter_folder = 'hosgeldi'
+newsletter_from = 'administrator@hosgeldi.com'
 
 languages = {
     'French': u'Учить слова на французском',

@@ -10,8 +10,7 @@ You can subscribe to https://hosgeldi.com/ newsletter that every day sends you 1
 
 ## Getting started
 
-1. Filter all your hosgeldi mail into the folder *"hosgeldi"* 
-(if you use another name, change the value of the variable `newsletter_folder` in settings/base.py).
+1. If you are using Gmail, allow [access for less secure apps](https://www.google.com/settings/security/lesssecureapps).
 
 2. Create the file local.py in *settings* directory.
 
@@ -30,6 +29,7 @@ If you want to change available languages, modify the dictionary `languages` in 
 1. Run Anki app.
 2. Tools -> hosgeldi.
 3. Choose the language.
-4. Choose Type and Deck.
-5. Click Import.
+4. Choose whether you want to delete processed messages.
+5. Choose Type and Deck.
+6. Click Import.
 

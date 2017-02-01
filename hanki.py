@@ -3,7 +3,7 @@ from subprocess import call
 
 import sys
 from aqt import mw
-from aqt.utils import chooseList
+from aqt.utils import chooseList, askUser
 from aqt.qt import *
 from os.path import exists
 
@@ -16,7 +16,13 @@ def import_hosgeldi_csv():
     languages_list = languages.keys()
     language = languages_list[chooseList('Choose the language', languages_list)]
 
-    call(["%shosgeldi.py" % path, "%s" % language])
+    call_shell = ["%shosgeldi.py" % path, "%s" % language]
+
+    delete = askUser('Do you want to delete processed mail?')
+    if delete:
+        call_shell.append("-d")
+
+    call(call_shell)
 
     csv_file = u"{}hosgeldi_{}.csv".format(path, language)
     if exists(csv_file):

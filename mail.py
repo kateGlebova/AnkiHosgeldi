@@ -1,4 +1,3 @@
-from email import message_from_string
 from imaplib import IMAP4_SSL
 from logging import getLogger
 
@@ -13,6 +12,8 @@ class Mailbox:
         except:
             logger.exception('An error occured while signing in.')
             exit(1)
+        else:
+            self.go_to_folder('inbox')
 
     def go_to_folder(self, folder):
         result, data = self.mail.select(folder)
@@ -20,8 +21,14 @@ class Mailbox:
             self.mail.create(folder)
             self.mail.select(folder)
 
-    def get_uids(self):
-        result, data = self.mail.uid('search', None, "ALL")
+    def get_all_uids(self):
+        return self.get_uids("ALL")
+
+    def get_uids_from(self, sender):
+        return self.get_uids('(FROM "%s")' % sender)
+
+    def get_uids(self, criterion):
+        result, data = self.mail.uid('search', None, criterion)
         if result == 'OK':
             return data[0].split()
         return None
