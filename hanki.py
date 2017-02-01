@@ -24,7 +24,8 @@ def import_hosgeldi_csv():
 
     call(call_shell)
 
-    csv_file = u"{}hosgeldi_{}.csv".format(path, language)
+    from settings.local import csv_path
+    csv_file = u"{}hosgeldi_{}.csv".format(csv_path, language)
     if exists(csv_file):
         mw.handleImport(csv_file)
 

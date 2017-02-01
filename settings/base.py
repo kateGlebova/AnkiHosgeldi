@@ -3,8 +3,6 @@
 import logging.config
 import os
 
-import sys
-
 basedir = os.path.abspath(os.path.dirname(__file__) + '/..')
 
 
@@ -57,4 +55,3 @@ config_dict = {
 }
 
 logging.config.dictConfig(config_dict)
-sys.path.append(basedir)

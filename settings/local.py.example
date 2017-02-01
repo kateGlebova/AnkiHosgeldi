@@ -1,3 +1,5 @@
 host = 'imap.gmail.com'
 username = 'username@example.com'
 password = '1234567'
+
+csv_path = '/media/kate/D/stuff/anki_hosgeldi/'

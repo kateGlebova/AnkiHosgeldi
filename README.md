@@ -1,6 +1,11 @@
-# Hosgeldi newsletter
+# AnkiHosgeldi
 
-You can subscribe to https://hosgeldi.com/ newsletter that every day sends you 10 words of the language you are learning.
+[Anki](https://apps.ankiweb.net/) is a program for remembering things based on the flashcards method.
+
+[Hosgeldi](https://hosgeldi.com/) is the web-site for learning languages with an option of subscribing to the newsletter that every day sends you 10 words of the language you are learning.
+
+AnkiHosgeldi pulls your hosgeldi mail, parses it and imports new words in Anki.
+
 ## Requirements
 
 1. Linux
